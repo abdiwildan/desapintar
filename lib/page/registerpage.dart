@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:desapintar/page/registerpage.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:flutter/cupertino.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class LoginScreen extends StatelessWidget {
                     FadeInUp(
                         duration: Duration(milliseconds: 1000),
                         child: Text(
-                          "Login",
+                          "Register",
                           style: TextStyle(color: Colors.white, fontSize: 40),
                         )),
                     SizedBox(
@@ -148,9 +148,7 @@ class LoginScreen extends StatelessWidget {
                           FadeInUp(
                               duration: Duration(milliseconds: 1600),
                               child: MaterialButton(
-                                  onPressed: () {
-                                    Navigator.pushReplacementNamed(context, '/home');
-                                  },
+                                  onPressed: () {},
                                   height: 50,
                                   minWidth: double.infinity,
                                   shape: RoundedRectangleBorder(
@@ -158,7 +156,7 @@ class LoginScreen extends StatelessWidget {
                                   color: Color.fromARGB(255, 23, 179, 23),
                                   child: Center(
                                     child: Text(
-                                      "Login",
+                                      "Register",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold),
@@ -177,11 +175,11 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                   CupertinoButton(
                                     onPressed: () {
-                                      Navigator.pushReplacementNamed(context, "/register");
+                                      Navigator.pushReplacementNamed(context, '/');
                                     },
                                     child: Text(
                                       "Register here",
-                                      style: TextStyle(color: Colors.blueAccent),
+                                      
                                     ),
                                   ),
                                 ],
@@ -193,3 +191,4 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
