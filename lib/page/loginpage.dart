@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:desapintar/page/registerpage.dart';
 import 'package:animate_do/animate_do.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -9,127 +8,129 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
               Navigator.pushNamed(context, '/register');
             },
-            icon: Icon(Icons.arrow_back)),
+            icon: const Icon(Icons.arrow_back)),
         backgroundColor: Color.fromARGB(255, 23, 179, 23),
-        foregroundColor: Color.fromARGB(255, 255, 255, 255),
-        elevation: 0.0,
+        foregroundColor: Colors.white,
+                elevation: 0.0,
       ),
-      backgroundColor: Color.fromARGB(255, 23, 179, 23),
+      backgroundColor: const Color.fromARGB(255, 23, 179, 23),
       body: Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
+        // width: double.infinity,
+        decoration: const BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter, colors: [
             Color.fromARGB(255, 23, 179, 23),
             Colors.greenAccent,
-            Colors.white,
+            Color.fromARGB(255, 216, 247, 230),
           ]),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
-              height: 80,
-            ),
+           
             Padding(
               padding: EdgeInsets.all(20),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    FadeInUp(
-                        duration: Duration(milliseconds: 1000),
-                        child: Text(
-                          "Login",
-                          style: TextStyle(color: Colors.white, fontSize: 40),
-                        )),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    FadeInUp(
-                        duration: Duration(milliseconds: 1300),
-                        child: Text(
-                          "Welcome Back",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        )),
-                  ]),
+              child:
+              ClipRRect(
+                borderRadius:BorderRadius.circular(26),
+                child: Image.asset(
+                  'images/Login.png',
+                  fit: BoxFit.cover,
+                ),
+              )
+              
             ),
-            SizedBox(
-              height: 20,
-            ),
+            
+           
             Expanded(
                 child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(60),
                             topRight: Radius.circular(60))),
                     child: Padding(
-                        padding: EdgeInsets.all(30),
+                        padding: const EdgeInsets.all(30),
                         child: Column(children: [
-                          SizedBox(
-                            height: 60,
-                          ),
+                          
                           FadeInUp(
-                              duration: Duration(milliseconds: 1400),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color:
-                                              Color.fromRGBO(255, 95, 27, .3),
-                                          blurRadius: 20,
-                                          offset: Offset(0, 10))
-                                    ]),
-                                child: Column(
-                                  children: <Widget>[
-                                    Container(
-                                      padding: EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                          border: Border(
-                                              bottom: BorderSide(
-                                                  color:
-                                                      Colors.grey.shade200))),
-                                      child: TextField(
-                                        decoration: InputDecoration(
-                                            hintText: "Email or Username",
-                                            hintStyle:
-                                                TextStyle(color: Colors.grey),
-                                            border: InputBorder.none),
-                                      ),
-                                    ),
-                                    Container(
-                                      padding: EdgeInsets.all(10),
-                                      decoration: BoxDecoration(
-                                          border: Border(
-                                              bottom: BorderSide(
-                                                  color:
-                                                      Colors.grey.shade200))),
-                                      child: TextField(
-                                        obscureText: true,
-                                        decoration: InputDecoration(
-                                            hintText: "Password",
-                                            hintStyle:
-                                                TextStyle(color: Colors.grey),
-                                            border: InputBorder.none),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )),
-                          SizedBox(
+                            duration: const Duration(milliseconds: 1500),
+                            child: const Column(
+                              children: <Widget>[
+                                Text(
+                                  "Login To your Account",
+                                  style: TextStyle(fontSize: 28, fontFamily: 'pop'),
+                                )
+                                    
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
                             height: 20,
                           ),
                           FadeInUp(
-                            duration: Duration(milliseconds: 1500),
-                            child: Row(
+                            duration: const Duration(milliseconds: 1400),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    const BoxShadow(
+                                        color:
+                                            Color.fromRGBO(5, 3, 2, 0.298),
+                                        blurRadius: 10,
+                                        offset: Offset(0, 5))
+                                  ]
+                              ),
+                              
+                              child: Column(
+                                children: <Widget>[
+                                  Container(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    
+                                    decoration: BoxDecoration(
+                                        border: Border(
+                                            bottom: BorderSide(
+                                                color:
+                                                    Colors.grey.shade200))),
+                                    child: const TextField(
+                                      decoration: InputDecoration(
+                                          hintText: "Email or Username",
+                                          hintStyle:
+                                              TextStyle(color: Colors.grey),
+                                          border: InputBorder.none),
+                                    ),
+                                  ),
+                                  
+                                  Container(
+                                    padding: const EdgeInsets.only(left: 10),
+                                    
+                                    child: const TextField(
+                                      obscureText: true,
+                                      decoration: InputDecoration(
+                                          hintText: "Password",
+                                          hintStyle:
+                                              TextStyle(color: Colors.grey),
+                                          border: InputBorder.none),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )
+                          ),
+                            const SizedBox(
+                            height: 20,
+                          ),
+                          FadeInUp(
+                            duration: const Duration(milliseconds: 1500),
+                            child: const Row(
                               children: <Widget>[
+                                
                                 Text(
                                   "Remember Me",
                                   style: TextStyle(color: Colors.grey),
@@ -142,11 +143,11 @@ class LoginScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           FadeInUp(
-                              duration: Duration(milliseconds: 1600),
+                              duration: const Duration(milliseconds: 1600),
                               child: MaterialButton(
                                   onPressed: () {
                                     Navigator.pushReplacementNamed(context, '/home');
@@ -155,8 +156,8 @@ class LoginScreen extends StatelessWidget {
                                   minWidth: double.infinity,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(18)),
-                                  color: Color.fromARGB(255, 23, 179, 23),
-                                  child: Center(
+                                  color: const Color.fromARGB(255, 23, 179, 23),
+                                  child: const Center(
                                     child: Text(
                                       "Login",
                                       style: TextStyle(
@@ -164,14 +165,14 @@ class LoginScreen extends StatelessWidget {
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ))),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           FadeInUp(
-                              duration: Duration(milliseconds: 1500),
+                              duration: const Duration(milliseconds: 1500),
                               child: Row(
                                 children: <Widget>[
-                                  Text(
+                                  const Text(
                                     "Don't have Account?",
                                     style: TextStyle(color: Colors.grey),
                                   ),
@@ -179,9 +180,9 @@ class LoginScreen extends StatelessWidget {
                                     onPressed: () {
                                       Navigator.pushReplacementNamed(context, "/register");
                                     },
-                                    child: Text(
+                                    child: const Text(
                                       "Register here",
-                                      style: TextStyle(color: Colors.blueAccent),
+                                      style: TextStyle(color: Colors.green),
                                     ),
                                   ),
                                 ],

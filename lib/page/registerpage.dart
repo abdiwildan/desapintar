@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -15,103 +14,110 @@ class RegisterScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, '/register');
             },
-            icon: Icon(Icons.arrow_back)),
-        backgroundColor: Color.fromARGB(255, 23, 179, 23),
-        foregroundColor: Color.fromARGB(255, 255, 255, 255),
+            icon: const Icon(Icons.arrow_back)),
+        backgroundColor: const Color.fromARGB(255, 23, 179, 23),
+        foregroundColor: Colors.white,
         elevation: 0.0,
       ),
-      backgroundColor: Color.fromARGB(255, 23, 179, 23),
+      backgroundColor: const Color.fromARGB(255, 23, 179, 23),
       body: Container(
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(begin: Alignment.topCenter, colors: [
             Color.fromARGB(255, 23, 179, 23),
             Colors.greenAccent,
-            Colors.white,
+            Color.fromARGB(255, 216, 247, 230),
           ]),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(
-              height: 80,
-            ),
+          
             Padding(
-              padding: EdgeInsets.all(20),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    FadeInUp(
-                        duration: Duration(milliseconds: 1000),
-                        child: Text(
-                          "Register",
-                          style: TextStyle(color: Colors.white, fontSize: 40),
-                        )),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    FadeInUp(
-                        duration: Duration(milliseconds: 1300),
-                        child: Text(
-                          "Welcome Back",
-                          style: TextStyle(color: Colors.white, fontSize: 18),
-                        )),
-                  ]),
+              padding: const EdgeInsets.all(20),
+              child:
+              ClipRRect(
+                borderRadius:BorderRadius.circular(26),
+                child: Image.asset(
+                  'images/regist.png',
+                  fit: BoxFit.cover,
+                  height: 200,
+                ),
+              )
+              
             ),
-            SizedBox(
-              height: 20,
-            ),
+            
             Expanded(
                 child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(60),
                             topRight: Radius.circular(60))),
                     child: Padding(
-                        padding: EdgeInsets.all(30),
+                        padding: const EdgeInsets.all(30),
                         child: Column(children: [
-                          SizedBox(
-                            height: 60,
-                          ),
                           FadeInUp(
-                              duration: Duration(milliseconds: 1400),
+                            duration: const Duration(milliseconds: 1500),
+                            child: const Column(
+                              children: <Widget>[
+                                Text(
+                                  "Create New Account",
+                                  style: TextStyle(fontSize: 28,),
+                                )
+                                    
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          FadeInUp(
+                              duration: const Duration(milliseconds: 1400),
                               child: Container(
                                 decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                           color:
-                                              Color.fromRGBO(255, 95, 27, .3),
-                                          blurRadius: 20,
-                                          offset: Offset(0, 10))
+                                              Colors.black12,
+                                          blurRadius: 10,
+                                          offset: Offset(0, 5))
                                     ]),
                                 child: Column(
                                   children: <Widget>[
                                     Container(
-                                      padding: EdgeInsets.all(10),
+                                      padding: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
                                           border: Border(
                                               bottom: BorderSide(
                                                   color:
                                                       Colors.grey.shade200))),
-                                      child: TextField(
+                                      child: const TextField(
                                         decoration: InputDecoration(
-                                            hintText: "Email or Username",
+                                            hintText: "Email",
                                             hintStyle:
                                                 TextStyle(color: Colors.grey),
                                             border: InputBorder.none),
                                       ),
                                     ),
                                     Container(
-                                      padding: EdgeInsets.all(10),
+                                      padding: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
                                           border: Border(
                                               bottom: BorderSide(
                                                   color:
                                                       Colors.grey.shade200))),
-                                      child: TextField(
+                                      child: const TextField(
+                                        decoration: InputDecoration(
+                                            hintText: "Username",
+                                            hintStyle:
+                                                TextStyle(color: Colors.grey),
+                                            border: InputBorder.none),
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.all(10),
+                                      child: const TextField(
                                         obscureText: true,
                                         decoration: InputDecoration(
                                             hintText: "Password",
@@ -123,38 +129,21 @@ class RegisterScreen extends StatelessWidget {
                                   ],
                                 ),
                               )),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           FadeInUp(
-                            duration: Duration(milliseconds: 1500),
-                            child: Row(
-                              children: <Widget>[
-                                Text(
-                                  "Remember Me",
-                                  style: TextStyle(color: Colors.grey),
-                                ),
-                                Spacer(),
-                                Text(
-                                  "Forgot Password?",
-                                  style: TextStyle(color: Colors.grey),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          FadeInUp(
-                              duration: Duration(milliseconds: 1600),
+                              duration: const Duration(milliseconds: 1600),
                               child: MaterialButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.pushReplacementNamed(context, '/home');
+                                  },
                                   height: 50,
                                   minWidth: double.infinity,
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(18)),
-                                  color: Color.fromARGB(255, 23, 179, 23),
-                                  child: Center(
+                                  color: const Color.fromARGB(255, 23, 179, 23),
+                                  child: const Center(
                                     child: Text(
                                       "Register",
                                       style: TextStyle(
@@ -162,23 +151,23 @@ class RegisterScreen extends StatelessWidget {
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ))),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           FadeInUp(
-                              duration: Duration(milliseconds: 1500),
+                              duration: const Duration(milliseconds: 1500),
                               child: Row(
                                 children: <Widget>[
-                                  Text(
-                                    "Don't have Account?",
+                                  const Text(
+                                    "Already have an Account?",
                                     style: TextStyle(color: Colors.grey),
                                   ),
                                   CupertinoButton(
                                     onPressed: () {
                                       Navigator.pushReplacementNamed(context, '/');
                                     },
-                                    child: Text(
-                                      "Register here",
+                                    child: const Text(
+                                      "Login here",
                                       
                                     ),
                                   ),

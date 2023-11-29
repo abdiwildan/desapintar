@@ -1,6 +1,7 @@
+import 'package:desapintar/constants/color.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 class FeaturedScreen extends StatefulWidget {
   const FeaturedScreen({super.key});
 
@@ -11,13 +12,61 @@ class FeaturedScreen extends StatefulWidget {
 class _FeaturedScreenState extends State<FeaturedScreen> {
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion<SystemUiOverlayStyle>(
+    return const AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
       child: Scaffold(
         body: Column(
-          children: const [AppBar()],
+          children: [
+            AppBar(),
+            Body(),
+          ],
         ),
       ),
+    );
+  }
+}
+
+class Body extends StatelessWidget {
+  const Body({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Pelayanan',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              TextButton(
+                  onPressed: () {},
+                  child: Text(
+                    'Lihat Semua',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                          color: kPrimaryColor,
+                        ),
+                  ))
+            ],
+          ),
+        ),
+        GridView.builder(
+            shrinkWrap: true,
+            itemCount: categoryList.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 24,
+                crossAxisCount: 4,
+                childAspectRatio: 0.8),
+            itemBuilder: (context, index) {
+              return CategoryCard(
+                category: categoryList[index],
+              );
+            })
+      ],
     );
   }
 }
@@ -28,10 +77,10 @@ class AppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
-        height: 200,
+        padding: const EdgeInsets.only(top: 20, left: 20,),
+        height: 250,
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20),
                 bottomRight: Radius.circular(20)),
@@ -47,11 +96,14 @@ class AppBar extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    'Hello, \nGood Morning',
+                    'Selamat Datang, \nDi Desa Sukamakmur\n\nNimati Layanan Desa, \n Dalam Genggaman',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
-                  IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
-                ])
+                  Image.asset('images/kades.png',
+                  fit: BoxFit.cover,
+                  width: 175,)
+                  
+                ]),
           ],
         ));
   }

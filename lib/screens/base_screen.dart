@@ -1,5 +1,7 @@
 import 'package:desapintar/screens/featured_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:desapintar/constants/color.dart';
+import 'package:desapintar/constants/size.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
@@ -13,7 +15,6 @@ class _BaseScreenState extends State<BaseScreen> {
 
   static const List<Widget> _widgetOptions = <Widget>[
    FeaturedScreen(),
-   FeaturedScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -23,29 +24,32 @@ class _BaseScreenState extends State<BaseScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.greenAccent,
+          selectedItemColor: kPrimaryColor,
           backgroundColor: Colors.white,
           elevation: 0,
-          items: [
+          items: const [
             BottomNavigationBarItem(
-                activeIcon: Icon(Icons.abc_rounded),
-                icon: Icon(Icons.home_filled),
-                label: "Home"),
+                icon: Icon(
+                  Icons.home_filled,
+                  weight: kBottomNavigationBarItemSize,),
+                label: "Home",
+            
+            ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
+              icon: Icon(Icons.description),
               label: "News",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
-              label: "Laporan",
+              icon: Icon(Icons.account_balance),
+              label: "Profil",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
-              label: "Bar 4",
+              icon: Icon(Icons.edit_document),
+              label: "Surat",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
-              label: "Bar 6",
+              icon: Icon(Icons.settings),
+              label: "Setting",
             ),
           ],
           currentIndex: _selectedIndex,
