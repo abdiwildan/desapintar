@@ -1,7 +1,11 @@
-import 'package:desapintar/screens/featured_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:desapintar/constants/color.dart';
 import 'package:desapintar/constants/size.dart';
+
+import 'HomeScreen.dart';
+import 'NewestScreen.dart';
+import 'ProfileScreen.dart';
+import 'ServiceScreen.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
@@ -14,7 +18,11 @@ class _BaseScreenState extends State<BaseScreen> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
-   FeaturedScreen(),
+   HomeScreen(),
+   NewestScreen(),
+   ProfileScreen(),
+   ServiceScreen(),
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -32,24 +40,23 @@ class _BaseScreenState extends State<BaseScreen> {
                 icon: Icon(
                   Icons.home_filled,
                   weight: kBottomNavigationBarItemSize,),
-                label: "Home",
+                label: "Beranda",
             
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.description),
-              label: "News",
+              label: "Berita",
+
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.account_balance),
               label: "Profil",
+
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.edit_document),
               label: "Surat",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: "Setting",
+
             ),
           ],
           currentIndex: _selectedIndex,

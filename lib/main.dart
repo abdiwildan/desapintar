@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:desapintar/page/loginpage.dart';
-import 'package:desapintar/page/registerpage.dart';
-import 'package:desapintar/screens/base_screen.dart';
-
-
-
+import 'package:desapintar/screens/LoginScreen.dart';
+import 'package:desapintar/screens/RegisterScreen.dart';
+import 'package:desapintar/screens/BaseScreen.dart';
 void main() {
   runApp(const MyApp());
 }

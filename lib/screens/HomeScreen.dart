@@ -1,15 +1,16 @@
 import 'package:desapintar/constants/color.dart';
-import 'package:flutter/foundation.dart';
+import 'package:desapintar/widgets/NewestWidget.dart';
+import 'package:desapintar/widgets/ServiceWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-class FeaturedScreen extends StatefulWidget {
-  const FeaturedScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<FeaturedScreen> createState() => _FeaturedScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _FeaturedScreenState extends State<FeaturedScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return const AnnotatedRegion<SystemUiOverlayStyle>(
@@ -53,19 +54,21 @@ class Body extends StatelessWidget {
             ],
           ),
         ),
-        GridView.builder(
-            shrinkWrap: true,
-            itemCount: categoryList.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 24,
-                crossAxisCount: 4,
-                childAspectRatio: 0.8),
-            itemBuilder: (context, index) {
-              return CategoryCard(
-                category: categoryList[index],
-              );
-            })
+        ServiceWidget(),
+
+        Padding(
+          padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Berita',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            ],
+          ),
+        ),
+        NewestWidget(),
       ],
     );
   }
